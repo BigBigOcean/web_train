@@ -7,10 +7,10 @@
 <dl><li>牛客网</li></dl>
 <ol><li>牛客网</li></ol>
 
-A.ul只能紧挨着li
-B.a中不能再嵌套a
-C.dl dt
-D.ol li是有序排列
+A.ul只能紧挨着li<br>
+B.a中不能再嵌套a<br>
+C.dl dt<br>
+D.ol li是有序排列<br>
 
 ul+li 是无序列表
 ol+li 是有序列表
