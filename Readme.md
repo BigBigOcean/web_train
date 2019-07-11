@@ -238,5 +238,71 @@ console.log(b); //5 <br>
 console.log(a); //报错 <br>
 此处报错也就是另一个考点，a声明的是函数的局部变量，在函数结束是就销毁了，所以在全局下找不到a，于是报错。<br>
 
+页面有一个按钮button id为 button1，通过原生的js如何禁用？(IE 考虑IE 8.0以上版本)<br>
+正确答案: C D   你的答案: B D (错误)<br>
+document.getElementById("button1").readolny= true;<br>
+document.getElementById("button1").setAttribute(“readolny”,”true”);<br>
+document.getElementById("button1").disabled = true;<br>
+document.getElementById("button1").setAttribute(“disabled”,”true”);<br>
+解：<br>
+①disabled和readOnly都是表单的公有属性， readOnly是只读， disabled是禁用。这里问的是禁用，所以是disabled。<br>
+②还有就是题目中的 readOnly写成了 readolny<br>
+③小知识点：setArrtibute在ie7以前是不能通过style和class设置属性的<br>
 
+
+页面有一个按钮button id为 button1，通过原生的js 设置背景色为红色？<br>
+正确答案: A   你的答案: A (正确)<br>
+document.getElementById('button1').style.backgroundColor="red";<br>
+关键点：驼峰<br>
+
+现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。<br>
+using namespace std;<br>
+int main()<br>
+{<br>
+    string st;<br>
+    while (cin >> st)<br>
+    {<br>
+        int n;<br>
+        cin >> n;<br>
+        while (n--)<br>
+        {<br>
+            int beg, len, index;<br>
+            cin >> beg >> len;<br>
+            string temp = st.substr(beg, len);<br>
+            index = beg + len;<br>
+            reverse(temp.begin(), temp.end());<br>
+            st.insert(index, temp);<br>
+        }<br>
+        cout << st << endl;<br>
+    }<br>
+    return 0;<br>
+}<br>
+
+你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？<br>
+import java.util.*;<br>
+public class Main{<br>
+    public static void main(String[] args){<br>
+        Scanner in = new Scanner(System.in);<br>
+        while(in.hasNext()){<br>
+            int n = in.nextInt();<br>
+            int s = in.nextInt();<br>
+            int l = in.nextInt();<br>
+            int count = (l+1)/(s+1);<br>
+            count = Math.min(n, count);<br>
+            if(count%13==0){<br>
+                count--;<br>
+            }<br>
+            int sum = n/count;<br>
+            int yu = n%count;<br>
+            if(yu!=0){<br>
+                sum++;<br>
+                if(yu%13==0&&(count-yu)==1){//查看最后最后一张专辑的情况，yu是最后一张专辑的歌曲数，如果yu是13的倍数，为了不增加专辑的数量，我们可以考虑从倒数第二张专辑中借一首歌，此时倒数第二张专辑的歌曲数是count-1，若(count-1)==yu，这种情况只能在多出一张专辑。<br>
+                    sum++;<br>
+                }<br>
+            }<br>
+            System.out.println(sum);<br>
+        }<br>
+    }<br>
+}<br>
+<br>
 
