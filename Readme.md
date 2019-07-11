@@ -2,16 +2,16 @@
 
 下面标签嵌套正确的是
 正确答案: D   你的答案: C (错误)
-<ul><p>牛客网</p></ul>
+`<ul><p>牛客网</p></ul>
 <a href="#"><a href="#">牛客网</a></a>
 <dl><li>牛客网</li></dl>
-<ol><li>牛客网</li></ol>
+<ol><li>牛客网</li></ol>`
 
 A.ul只能紧挨着li<br>
 B.a中不能再嵌套a<br>
 C.dl dt<br>
 D.ol li是有序排列<br>
-
+总结：
 ul+li 是无序列表
 ol+li 是有序列表
 dl+dt+dd 是自定义列表
