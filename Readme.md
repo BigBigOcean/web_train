@@ -30,7 +30,9 @@ a) 置换元素：浏览器根据元素的标签和属性，来决定元素的�
 例如：浏览器会根据`<img>`标签的src属性的 值来读取图片信息并显示出来，而如果查看(x)html代码，则看不到图片的实际内容；`<input>`标签的type属性来决定是显示输入框，还是单选按钮等。 (x)html中的`<img>、<input>、<textarea>、<select>、<object>` 都是置换元素。这些元素往往没有实际的内容，即是一个空元素。置换元素在其显示中生成了框，这也就是有的内联元素能够设置宽高的原因。<br>
 b) 不可替换元素：(x)html 的大多数元素是不可替换元素，即其内容直接表现给用户端（如浏览器）。例如标签`<label>`是一个非置换元素，文字label中的内容”将全被显示。<br>
 总结：<br>
-置换元素：`<img>、<input>、<textarea>、<select>、<object> <br>`
+置换元素：`<img>、<input>、<textarea>、<select>、<object> `<br>
+
+
 下面哪条声明能固定背景图片（）   <br>
 正确答案: A   你的答案: A (正确)<br>
 background-attachment:fixed;<br>
@@ -43,4 +45,10 @@ background-attachment :定义背景图片随滚动轴的移动方式 <br>
 scroll: 随着页面的滚动轴背景图片将移动 <br>
 fixed: 随着页面的滚动轴背景图片不会移动 <br>
 inherit: 继承初始值: scroll <br>
+
+display: none和visibility:hidden的区别就是visibility:hidden会保留元素的空间
+repaint(重绘) ，repaint发生更改时，元素的外观被改变，且在没有改变布局的情况下发生，如改变outline,visibility,background color，不会影响到dom结构渲染。
+reflow(渲染)，与repaint区别就是他会影响到dom的结构渲染，同时他会触发repaint，他会改变他本身与所有父辈元素(祖先)，这种开销是非常昂贵的，导致性能下降是必然的，页面元素越多效果越明显。
+所以display:none才会产生reflow
+visibility:hidden只会触发repaint
 
