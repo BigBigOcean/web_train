@@ -326,3 +326,148 @@ a-b=0Xf000000000000000-0X8000000000000000+1<br>
 =2^60*7+1<br>
 =2^60*(2^2+2^1+2^0)+1<br>
 =2^62+2^61+2^60+1<br>
+
+Boolean([]); //true<br>
+Number([]); //0<br>
+Number({}); // NaN<br>
+Number(false); //0<br>
+
+（1）行内元素有：`a b span img input select strong `
+（2）块级元素有：`div ul ol li dl dt dd h1 h2 h3 h4…p form`
+（3）常见的空元素：`<br> <hr> <img> <input> <link> <meta>`
+块元素一般都从新行开始，它可以容纳内联元素和其他块元素,常见块元素是段落标签'P"。“form"这个块元素比较特殊，它只能用来容纳其他块元素。   
+
+跨域：https://segmentfault.com/a/1190000015597029
+产生：浏览器的同源策略。
+同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
+浏览器是从两个方面去做这个同源策略的，一是针对接口的请求（cookie），二是针对Dom的查询（getElementById）。
+解决：
+第一种方式：jsonp请求；jsonp的原理是利用<script>标签的跨域特性，可以不受限制地从其他域中加载资源，类似的标签还有<img>.只支持GET请求而不支持POST等其它类型的HTTP请求；它只支持跨域HTTP请求这种情况，不能解决不同域的两个页面之间如何进行JavaScript调用的问题
+第二种方式：document.domain；这种方式用在主域名相同子域名不同的跨域访问中
+第三种方式：window.name；window的name属性有个特征：在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。
+第四种方式：window.postMessage；window.postMessages是html5中实现跨域访问的一种新方式，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源。
+第五种方式：CORS；CORS背后的基本思想，就是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是应该失败。
+第六种方式：Web Sockets；web sockets原理：在JS创建了web socket之后，会有一个HTTP请求发送到浏览器以发起连接。取得服务器响应后，建立的连接会使用HTTP升级从HTTP协议交换为web sockt协议。
+不能ajax，因为域名不同不能ajax交互
+
+可继承的样式属性包括（）
+正确答案: A C   你的答案: B C D E (错误)
+color
+background-color
+font-size
+border
+margin
+解：
+边框，盒子模型，背景属性属于不可继承属性 字体，文本样式属性属于可继承属性
+总结：
+一、无继承性的属性
+1、display：规定元素应该生成的框的类型
+2、文本属性：
+vertical-align：垂直文本对齐
+text-decoration：规定添加到文本的装饰
+text-shadow：文本阴影效果
+white-space：空白符的处理
+unicode-bidi：设置文本的方向
+3、盒子模型的属性：width、height、margin 、margin-top、margin-right、margin-bottom、margin-left、border、border-style、border-top-style、border-right-style、border-bottom-style、border-left-style、border-width、border-top-width、border-right-right、border-bottom-width、border-left-width、border-color、border-top-color、border-right-color、border-bottom-color、border-left-color、border-top、border-right、border-bottom、border-left、padding、padding-top、padding-right、padding-bottom、padding-left
+4、背景属性：background、background-color、background-image、background-repeat、background-position、background-attachment
+5、定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
+6、生成内容属性：content、counter-reset、counter-increment
+7、轮廓样式属性：outline-style、outline-width、outline-color、outline
+8、页面样式属性：size、page-break-before、page-break-after
+9、声音样式属性：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
+二、有继承性的属性
+1、字体系列属性
+font：组合字体
+font-family：规定元素的字体系列
+font-weight：设置字体的粗细
+font-size：设置字体的尺寸
+font-style：定义字体的风格
+font-variant：设置小型大写字母的字体显示文本，这意味着所有的小写字母均会被转换为大写，但是所有使用小型大写字体的字母与其余文本相比，其字体尺寸更小。
+font-stretch：对当前的 font-family 进行伸缩变形。所有主流浏览器都不支持。
+font-size-adjust：为某个元素规定一个 aspect 值，这样就可以保持首选字体的 x-height。
+2、文本系列属性
+text-indent：文本缩进
+text-align：文本水平对齐
+line-height：行高
+word-spacing：增加或减少单词间的空白（即字间隔）
+letter-spacing：增加或减少字符间的空白（字符间距）
+text-transform：控制文本大小写
+direction：规定文本的书写方向
+color：文本颜色
+3、元素可见性：visibility
+4、表格布局属性：caption-side、border-collapse、border-spacing、empty-cells、table-layout
+5、列表布局属性：list-style-type、list-style-image、list-style-position、list-style
+6、生成内容属性：quotes
+7、光标属性：cursor
+8、页面样式属性：page、page-break-inside、windows、orphans
+9、声音样式属性：speak、speak-punctuation、speak-numeral、speak-header、speech-rate、volume、voice-family、pitch、pitch-range、stress、richness、azimuth、elevation
+三、所有元素可以继承的属性
+1、元素可见性：visibility
+2、光标属性：cursor
+四、内联元素可以继承的属性
+1、字体系列属性
+2、除text-indent、text-align之外的文本系列属性
+五、块级元素可以继承的属性
+1、text-indent、text-align
+
+堆的插入操作：
+1.一开始的时候，元素80和其父亲节点比较，发现其大于父亲节点，因此要上溢，将元素80与其父亲节点进行交换
+2.交换后再重复上述过程，发现元素80仍然比其父亲节点大，继续上溢，将元素80与其父亲节点进行交换
+3.然后再将其与父亲节点比较，发现此时小于其父亲节点的值，说明此时堆中不再存在大小颠倒了，那么此时元素80找到了它在堆中的位置，插入操作结束
+
+http 请求方式 get 和 post 的区别包括：
+get和post的可传输内容大小不一样，一个有限制一个没有限制
+get和post传输的内容存放的位置不一样，一个放在header，一个放在body
+get的 Content-type不仅可以是 text/html，也可以是其他，如 application/json, text/plain 等等
+get请求可以跨域， post一样可以跨域
+
+typeof Symbol()    //"symbol"（ES6新增）
+typeof Number()    //"number"
+typeof String()    //"string"
+typeof Function()    //"function"
+typeof Object()    //"object"
+typeof Boolean()    //"boolean"
+typeof null    //"object"
+typeof undefined    //"undefined"
+记忆：
+SN SUN BOF（苏宁 太阳 BO5）
+
+老王有两个孩子，已知至少有一个孩子是在星期二出生的男孩。问：两个孩子都是男孩的概率是多大？
+解：
+先按照两个孩子的四种可能的性别组合进行划分，然后在每种组合里看看满足有至少一个周二男孩的情况数目：
+姐妹俩：不用看了，不满足至少有一个周二男孩的条件。
+兄妹俩：那哥哥一定是周二出生的了，妹妹出生的星期数有7种可能。
+姐弟俩：弟弟一定是周二出生，姐姐出生的星期数有7种可能。
+兄弟俩：兄弟二人出生的星期数总共有7 * 7 = 49种可能，但其中有6 * 6 = 36种都不满足至少有一个人是周二出生的条件，因此实际上有49 - 36 = 13种可能。
+因此，满足条件的情况（这里的情况是指综合考虑孩子的性别和出生星期数）总数为7 + 7 + 13 = 27。
+而其中有13中可能对应于两个孩子都是男孩。因此题目所求概率是13 / 27。
+
+TCP连接建立(“三次握手”)
+分为三步：
+（1）客户机的TCP向服务器的TCP发送一个连接请求报文段，其中不含应用层数据，首部中的SYN标志位被置为1。客户机会随机选择一个起始序号seq=x(连接请求报文不携带数据，但要消耗一个序号)。
+(SYN = 1, seq = x)
+（2）服务器的TCP收到连接请求报文段后，如同意建立连接，就向客户机发回确认，并为该TCP连接分配TCP缓存和变量。确认报文段中SYN和ACK位都被置为1，确认号字段的值为x+1，并且服务器随机产生起始序号seq = y(确认报文不携带数据，但也要消耗掉一个序号)。确认报文段同样不包含应用层数据。
+(SYN = 1, ACK = 1, seq = y, ack = x+1)
+（3）当客户机收到确认报文段后，还要向服务器给出确认，并且也要分配缓存和变量。报文段的ACK标志位被置1，序号字段为x+1，确认号字段为ack = y+1。该报文段可以携带数据，如果不携带数据则不消耗序号。
+(ACK = 1, seq = x+1, ack = y+1)
+
+TCP连接的释放(“四次挥手”)
+分为四步：
+（1）客户机打算关闭连接，就向其TCP发送一个连接释放报文段，并停止再发送数据，主动关闭TCP连接，该报文段的FIN标志位被置1，seq = u，它等于前面已传送过的数据的最后一个字节的序号加1(FIN报文段即使不携带数据，也要消耗掉一个序号)。TCP是全双工的，可以想象成是一条TCP连接上有两条数据通路。当发送FIN报文时，发送FIN的一端就不能再发送数据，也就是关闭了其中一条数据通路，但对方还可以发送数据。
+(FIN = 1, seq = u)
+（2）服务器收到连接释放报文段后即发出确认，确认号是ack = u+1，而这个报文段自己的序号是v，等于它前面已传送过的数据的最后一个字节的序号加1。此时，从客户机到服务器方向的连接就释放了，TCP连接处于半关闭状态。但服务器若发送数据，客户机仍要接收，即从服务器到客户机方向的连接没有关闭。
+(ACK = 1, seq = v, ack = u+1)
+（3）若服务器已经没有要向客户机发送的数据，就通知TCP释放连接，此时其发出FIN = 1的连接释放报文段。
+(FIN = 1, ACK = 1, seq = w, ack = u+1)
+（4）客户机收到连接释放报文段后，必须发出确认。在确认报文段中，ACK字段被置为1，确认号ack = w+1，序号seq = u+1。此时TCP连接还没有释放掉，必须经过时间等待计时器设置的时间2MSL后，客户机才进入到连接关闭状态。
+(ACK = 1, seq = u+1, ack = w+1)
+因此，服务器端结束TCP连接的时间要比客户端早一些。
+
+CSS选择器优先级由高到低可分为：
+1.在属性后面使用!important会覆盖页面内任何位置定义的元素样式。
+2.作为style属性写在元素内的样式
+3.id选择器
+4.类选择器 = 伪类选择器 = 属性选择器 （后面的样式会覆盖前面的样式）
+5.标签选择器
+6.通配符选择器
+7.浏览器自定义的样式 
